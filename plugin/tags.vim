@@ -1,5 +1,5 @@
 let s:queries = [
-	\	"ag --js -o --noheading --nobreak '^export (?:function |class |const |default )*\\K",
+	\	"ag --js --ts -o --noheading --nobreak '^export (?:function |class |const |default )*\\K",
 	\	"ag --php -o --noheading --nobreak '(?:function |class )\\K",
 	\ ]
 
