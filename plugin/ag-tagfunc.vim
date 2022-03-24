@@ -1,7 +1,7 @@
 let s:cmd = "ag -o --noheading --nobreak"
 
 let s:queries = [
-	\	"--js --ts '^export ((function |class |const |default )*|{ *(\\w+, )*)",
+	\	"--js --ts '^export (default )?((function |class |const )|{ *(\\w+, )*)",
 	\	"--php '(function |class )",
 	\ ]
 
