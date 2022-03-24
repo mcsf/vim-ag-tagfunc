@@ -28,6 +28,7 @@ function! AgTagFunc(pattern, flags, info)
 			endfor
 		endfor
 		if ! empty(tags)
+			call sort(tags, {a, b -> len(a['filename']) - len(b['filename'])})
 			return tags
 		endif
 
