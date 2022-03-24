@@ -10,8 +10,8 @@ function! AgTagFunc(pattern, flags, info)
 	" CTRL-], :tag, :tselect, etc. It is not meant to autocomplete partial
 	" tags.
 	if (match(a:flags, "i") == -1)
-		let cmd = exists("g:agtagfunc_cmd") ? g:agtagfunc_cmd : s:cmd
-		let query = exists("g:agtagfunc_queries") ? g:agtagfunc_queries : s:queries
+		let cmd = get(g:, 'agtagfunc_cmd', s:cmd)
+		let query = get(g:, 'agtagfunc_queries', s:queries)
 
 		let tags = []
 		for query in query
