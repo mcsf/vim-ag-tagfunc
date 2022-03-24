@@ -28,5 +28,6 @@ Once you have installed this repo as a Vim plugin using your method of choice, y
 
 ## Configuration
 
-- `g:agtagfunc_cmd`: override `ag` invocation (default: `'ag -o --noheading --nobreak'`)
-- `g:agtagfunc_queries`: override supported code queries (default: JavaScript, TypeScript, PHP)
+- `g:agtagfunc_cmd` (string): override `ag` invocation (default: `'ag -o --noheading --nobreak'`)
+- `g:agtagfunc_queries` (string): override supported code queries (default: JavaScript, TypeScript, PHP)
+- `g:agtagfunc_path` (list): override search path(s) (default: ['.'])

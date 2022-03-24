@@ -12,10 +12,11 @@ function! AgTagFunc(pattern, flags, info)
 	if (match(a:flags, "i") == -1)
 		let cmd = get(g:, 'agtagfunc_cmd', s:cmd)
 		let query = get(g:, 'agtagfunc_queries', s:queries)
+		let path = join(get(g:, 'agtagfunc_path', ['.']))
 
 		let tags = []
 		for query in query
-			let matches = split(system(cmd . " " . query . '\K' . a:pattern . "\\b'"), "\n")
+			let matches = split(system(cmd . " " . query . '\K' . a:pattern . "\\b' " . path), "\n")
 			for m in matches
 				let [file, line, name] = split(m, ':')
 				let tag = {
