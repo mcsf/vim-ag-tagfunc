@@ -2,7 +2,7 @@ let s:cmd = "ag -o --noheading --nobreak"
 
 let s:queries = [
 	\	"--js --ts '^export (default )?((function |class |const )|{ *(\\w+, )*)",
-	\	"--php '(function |class )",
+	\	"--php '^\\s*(function |class )",
 	\ ]
 
 function! AgTagFunc(pattern, flags, info)
