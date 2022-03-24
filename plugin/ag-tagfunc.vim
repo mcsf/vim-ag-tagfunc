@@ -13,8 +13,8 @@ function! AgTagFunc(pattern, flags, info)
 		let cmd = exists("g:agtagfunc_cmd") ? g:agtagfunc_cmd : s:cmd
 		let query = exists("g:agtagfunc_queries") ? g:agtagfunc_queries : s:queries
 
+		let tags = []
 		for query in query
-			let tags = []
 			let matches = split(system(cmd . " " . query . a:pattern . "\\W'"), "\n")
 			for m in matches
 				let [file, line, rest] = split(m, ':')
@@ -25,10 +25,10 @@ function! AgTagFunc(pattern, flags, info)
 					\ }
 				call insert(tags, tag)
 			endfor
-			if ! empty(tags)
-				return tags
-			endif
 		endfor
+		if ! empty(tags)
+			return tags
+		endif
 
 	endif
 
