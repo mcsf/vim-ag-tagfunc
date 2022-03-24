@@ -17,9 +17,9 @@ function! AgTagFunc(pattern, flags, info)
 		for query in query
 			let matches = split(system(cmd . " " . query . a:pattern . "\\b'"), "\n")
 			for m in matches
-				let [file, line, rest] = split(m, ':')
+				let [file, line, name] = split(m, ':')
 				let tag = {
-					\	'name': a:pattern,
+					\	'name': name,
 					\	'filename': file,
 					\	'cmd': line,
 					\ }
