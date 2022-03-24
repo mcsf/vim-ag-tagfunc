@@ -1,8 +1,8 @@
 let s:cmd = "ag -o --noheading --nobreak"
 
 let s:queries = [
-	\	"--js --ts '^export ((function |class |const |default )*|{ *(\\w+, )*)\\K",
-	\	"--php '(function |class )\\K",
+	\	"--js --ts '^export ((function |class |const |default )*|{ *(\\w+, )*)",
+	\	"--php '(function |class )",
 	\ ]
 
 function! AgTagFunc(pattern, flags, info)
@@ -15,7 +15,7 @@ function! AgTagFunc(pattern, flags, info)
 
 		let tags = []
 		for query in query
-			let matches = split(system(cmd . " " . query . a:pattern . "\\b'"), "\n")
+			let matches = split(system(cmd . " " . query . '\K' . a:pattern . "\\b'"), "\n")
 			for m in matches
 				let [file, line, name] = split(m, ':')
 				let tag = {
