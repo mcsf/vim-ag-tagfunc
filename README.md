@@ -1,3 +1,8 @@
+**This tool crawls the entire project every time a tag is looked up. `ag` is remarkably performant, but there are better ways. Consider not using a custom `tagfunc` and instead properly generating `tags` files with [mcsf/agtag](https://github.com/mcsf/agtag) and [on-the-fly regeneration of tags](https://github.com/mcsf/vim-gutenberg/blob/5bf2c0968f1e7f648932afbef6218112f782153a/plugin/gutenberg.vim#L18-L26).**
+
+<hr>
+
+
 # AgTagFunc
 
 Jump to definitions of public functions, classes, etc. in any project by letting Vim look up _tags_ dynamically using `ag` or any equivalently fast _grepping_ tool.
